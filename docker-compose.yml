@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  nettools:
+    build: .
+    container_name: network-analyzer
+    tty: true
+    stdin_open: true
+    network_mode: host  # agar bisa sniff traffic & jalankan tools dengan akses penuh
+    cap_add:
+      - NET_ADMIN     # biar bisa jalankan ping/traceroute
+      - NET_RAW       # untuk tcpdump & mtr
